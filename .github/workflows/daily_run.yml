@@ -1,0 +1,34 @@
+name: Daily Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_file:
+        description: 'Test file to run (relative path)'
+        required: true
+        default: 'tests/api/test_run_api_bash.py'
+
+  schedule:
+    - cron: '51 12 * * *'  # daily at 5:00 AM IST
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest selenium
+
+      - name: Run Selected Test
+        run: |
+          pytest ${{ github.event.inputs.test_file }}
