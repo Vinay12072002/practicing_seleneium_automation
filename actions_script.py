@@ -42,4 +42,6 @@ def test_actions():
     # Mouse hover to the static element
     static_ele = wait.until(EC.presence_of_element_located((By.XPATH, static_xpath)))
     actions.move_to_element(static_ele).click().perform()
+    print("Successfully completed actions")
+
 
