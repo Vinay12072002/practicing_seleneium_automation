@@ -31,7 +31,7 @@ jobs:
     # Step 4: Run Selenium tests and generate Allure results
     - name: Run all Tests with Allure
       run: |
-        pytest tests/ --alluredir=reports/allure
+        pytest tests/ 
 
     # Step 5: Generate HTML Allure reports
     - name: Generate Allure HTML Reports
