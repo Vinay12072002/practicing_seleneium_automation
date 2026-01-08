@@ -29,9 +29,9 @@ jobs:
         pip install -r requirements.txt
 
     # Step 4: Run Selenium tests and generate Allure results
-    - name: Run Selenium Tests
+    - name: Run all Tests with Allure
       run: |
-        pytest --alluredir=reports/allure
+        pytest tests/ --alluredir=reports/allure
 
     # Step 5: Generate HTML Allure reports
     - name: Generate Allure HTML Reports
