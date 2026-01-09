@@ -9,7 +9,9 @@ on:
         default: 'tests/api/test_run_api_bash.py'
 
   schedule:
-    - cron: '*/2 * * * *'  # daily at 5:00 AM IST
+  - cron: '30 0 * * *'   # 6:00 AM IST
+  - cron: '30 12 * * *'  # 6:00 PM IST
+
 
 jobs:
   run-tests:
